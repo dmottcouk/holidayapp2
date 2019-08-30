@@ -1,6 +1,4 @@
 # holidayapp2
-
-
 Flutter based weather/location/tide app for uk
 
 Target for iteration one - Put together a flutter app that can 

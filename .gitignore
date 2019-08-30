@@ -11,3 +11,22 @@ pubspec.lock
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
 doc/api/
+lib/shared/global_config.dart
+android/.gradle/buildOutputCleanup/outputFiles.bin
+android/.gradle/buildOutputCleanup/cache.properties
+android/.gradle/vcs-1/gc.properties
+android/local.properties
+android/.gradle/4.10.2/gc.properties
+android/.gradle/4.10.2/fileChanges/last-build.bin
+android/.gradle/4.10.2/fileContent/fileContent.lock
+android/.gradle/4.10.2/fileHashes/fileHashes.bin
+android/.gradle/4.10.2/fileHashes/fileHashes.lock
+android/.gradle/4.10.2/fileHashes/resourceHashesCache.bin
+android/.gradle/4.10.2/javaCompile/classAnalysis.bin
+android/.gradle/4.10.2/javaCompile/jarAnalysis.bin
+android/.gradle/4.10.2/javaCompile/javaCompile.lock
+android/.gradle/4.10.2/javaCompile/taskHistory.bin
+android/.gradle/4.10.2/taskHistory/taskHistory.bin
+android/.gradle/4.10.2/taskHistory/taskHistory.lock
+android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gitignore

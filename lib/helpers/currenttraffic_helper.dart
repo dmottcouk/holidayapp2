@@ -185,20 +185,6 @@ class CurrentTrafficHelper {
     double upperRightCornerLongitude = loc.longitude + 0.04;
 
     final List<TrafficEvent> events = [];
-    //  class TrafficEvent{
-    // String id;
-    // DateTime datestamp;
-    // DateTime starttime;
-    // DateTime endtime;
-    // DateTime entrytime;
-    // String criticality;
-    // String trafficeventeventtype;
-    // String status;
-    // String comments;
-    // PlaceLocation origin;
-    // PlaceLocation to;  // note this was bodged in the trafficeventswithdart file to be TOO
-    // double distancefromcurrentlocationmiles;
-//}
 
     try {
       final Uri trafficuri =

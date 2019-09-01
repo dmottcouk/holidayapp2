@@ -114,10 +114,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-Widget _appBarSettings(BuildContext ctx) {
-  return IconButton(
-      icon: Icon(Icons.settings),
-      onPressed: () =>
-          Navigator.of(ctx).pushNamed(TrafficFiltersScreen.routeName));
-}

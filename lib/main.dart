@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './providers/daylighttimes_provider.dart';
@@ -25,14 +24,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   PlaceLocation _currentLocation;
-void _selectedPlace(double lat, double lng) {
+  void _selectedPlace(double lat, double lng) {
     setState(() {
       _currentLocation = PlaceLocation(latitude: lat, longitude: lng);
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -64,48 +61,63 @@ void _selectedPlace(double lat, double lng) {
             accentColor: Colors.deepPurple,
           ),
           // home: PlacesListScreen(),
-          home: Scaffold(
-      appBar: AppBar(
-        title: Text('Holiday App 2'),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.settings), onPressed: () => Navigator.of(context).pushNamed(TrafficFiltersScreen.routeName))
-        ],
-      ),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              // call the LocationStaticMap and set the current location by passing the pointer to the _selectedPlace function
-              child: LocationStaticMap(_selectedPlace),
-              //child: Text('Why not working'),
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                children: <Widget>[
-                  MainButtonRow(_currentLocation),
-                  _currentLocation == null ? Center(child: CircularProgressIndicator()) : MainShowDayLightTimes(_currentLocation),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: MainFab(_currentLocation),
-    ),
+          home: Builder(
+            builder: (context) => Scaffold(
+                  appBar: AppBar(
+                    title: Text('Holiday App 2'),
+                    actions: <Widget>[
+                      IconButton(
+                          icon: Icon(Icons.settings),
+                          onPressed: () => Navigator.of(context)
+                              .pushNamed(TrafficFiltersScreen.routeName))
+                      //_appBarSettings(context),
+                    ],
+                  ),
+                  body: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 1,
+                          // call the LocationStaticMap and set the current location by passing the pointer to the _selectedPlace function
+                          child: LocationStaticMap(_selectedPlace),
+                          //child: Text('Why not working'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            children: <Widget>[
+                              MainButtonRow(_currentLocation),
+                              _currentLocation == null
+                                  ? Center(child: CircularProgressIndicator())
+                                  : MainShowDayLightTimes(_currentLocation),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  floatingActionButton: MainFab(_currentLocation),
+                ),
+          ),
           // routes takes a builder
           routes: {
             //move main_page stuff in here to use these
 
             MapScreen.routeName: (ctx) => MapScreen(),
-            
+
             TrafficFiltersScreen.routeName: (ctx) => TrafficFiltersScreen(),
             //CurrentWeatherPage.routeName: (ctx) => CurrentWeatherPage(),
             //CurrentTrafficPage.routeName: (ctx) => CurrentWeatherPage(),
           }),
     );
   }
+}
+
+Widget _appBarSettings(BuildContext ctx) {
+  return IconButton(
+      icon: Icon(Icons.settings),
+      onPressed: () =>
+          Navigator.of(ctx).pushNamed(TrafficFiltersScreen.routeName));
 }

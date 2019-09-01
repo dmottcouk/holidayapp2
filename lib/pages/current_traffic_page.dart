@@ -85,27 +85,16 @@ class _CurrentTrafficPageState extends State<CurrentTrafficPage> {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       decoration: BoxDecoration(
           color: Theme.of(ctx).primaryColorLight,
           borderRadius: BorderRadius.circular(10)),
-      child: Stack(children: <Widget>[
-        Image.asset(
-          'assets/images/highwaytraffic.png',
-          fit: BoxFit.cover,
-        ),
-        Center(
-          child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.white70, borderRadius: BorderRadius.circular(12)),
-            child: Text(
-              'Traffic',
-              style: TextStyle(color: Theme.of(ctx).accentColor, fontSize: 18),
-            ),
+      child:  Center(
+          child: Image.asset(
+            'assets/images/highwaytraffic.png',
+            fit: BoxFit.cover,
           ),
         ),
-      ]),
     );
   }
 }

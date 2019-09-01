@@ -29,5 +29,7 @@ android/.gradle/4.10.2/javaCompile/taskHistory.bin
 android/.gradle/4.10.2/taskHistory/taskHistory.bin
 android/.gradle/4.10.2/taskHistory/taskHistory.lock
 android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
-.gitignore
 android/app/src/main/AndroidManifest.xml
+.gitignore
+
+

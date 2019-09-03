@@ -10,7 +10,7 @@ class TrafficCard extends StatelessWidget {
   Widget build(BuildContext context) {
     print('The eventtype is ${trafficevent.trafficeventtype}');
     final BuildContext scaffoldContext = context;
-    ;
+    
     return Card(
       elevation: 3,
       child: Padding(
@@ -25,9 +25,12 @@ class TrafficCard extends StatelessWidget {
             ),
           ),
           title: Text(
-            DateFormat('E dd/MM/yyyy H:mm').format(trafficevent.entrytime),
+              DateFormat('E dd/MM/yyyy H:mm').format(trafficevent.starttime),
+              style: TextStyle(fontSize: 12)),
+          subtitle: Text(
+            trafficevent.trafficeventtype.toLowerCase(),
+            style: TextStyle(fontSize: 10),
           ),
-          subtitle: Text('traffic...'),
           trailing: _buildButtonBar(scaffoldContext, trafficevent),
         ),
       ),
@@ -39,7 +42,7 @@ Widget _buildButtonBar(BuildContext ctx, TrafficEvent trafficevent) {
   return Container(
     width: 100,
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         IconButton(
             icon: Icon(

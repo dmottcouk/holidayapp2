@@ -20,6 +20,14 @@ class _CurrentTrafficPageState extends State<CurrentTrafficPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Traffic'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.view_array),
+            onPressed: () {
+              _displayEventCounts(context);
+            },
+          )
+        ],
       ),
       body: FutureBuilder(
         future:
@@ -89,12 +97,64 @@ class _CurrentTrafficPageState extends State<CurrentTrafficPage> {
       decoration: BoxDecoration(
           color: Theme.of(ctx).primaryColorLight,
           borderRadius: BorderRadius.circular(10)),
-      child:  Center(
-          child: Image.asset(
-            'assets/images/highwaytraffic.png',
-            fit: BoxFit.cover,
-          ),
+      child: Center(
+        child: Image.asset(
+          'assets/images/highwaytraffic.png',
+          fit: BoxFit.cover,
         ),
+      ),
     );
   }
+}
+
+void _displayEventCounts(BuildContext ctx) {
+  //
+  final eventStats =
+      Provider.of<CurrentTrafficEventsProvider>(ctx, listen: false)
+          .eventsByType;
+  showModalBottomSheet(
+    context: ctx,
+    builder: (_) {
+      return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                width: 200,
+                decoration: BoxDecoration(
+                    color: Theme.of(ctx).primaryColorLight,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Text(
+                  'Traffic types',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            ),
+            //SizedBox(height: 15),
+            //Row(children: <Widget>[
+            //  Text('Accident'),
+            //  SizedBox(width: 12),
+            //  Text('2'),
+            //])
+            Expanded(
+              flex: 10,
+              child: Container(
+                child: ListView.builder(
+                    itemCount: eventStats.length,
+                    itemBuilder: (ctx, index) {
+                      String key = eventStats.keys.elementAt(index);
+                      return Container(
+                          margin: EdgeInsets.all(10),
+                          child: Row(children: <Widget>[
+                            Text('${key} : '),
+                            Text(eventStats[key].toString())
+                          ]));
+                    }),
+              ),
+            )
+          ]);
+    },
+  );
 }

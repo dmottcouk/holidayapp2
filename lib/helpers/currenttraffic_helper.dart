@@ -73,7 +73,6 @@ class CurrentTrafficHelper {
             upperRightCornerLatitude.toString() +
             ',' +
             upperRightCornerLongitude.toString(),
-
         'criticality': 'critical,major'
       });
       print('final uri = ${trafficuri.toString()}');
@@ -198,7 +197,6 @@ class CurrentTrafficHelper {
             upperRightCornerLatitude.toString() +
             ',' +
             upperRightCornerLongitude.toString(),
-
         'criticality': 'critical,major'
       });
       print('final uri = ${trafficuri.toString()}');
@@ -225,20 +223,45 @@ class CurrentTrafficHelper {
         if (trafficsettings['construction'] == true) {
           tyappend += ',Construction';
         }
-
+        if (trafficsettings['plannedevent'] == true) {
+          tyappend += ',PlannedEvent';
+        }
+        if (trafficsettings['masstransit'] == true) {
+          tyappend += ',MassTransit';
+        }
+        if (trafficsettings['othernews'] == true) {
+          tyappend += ',OtherNews';
+        }
+        if (trafficsettings['weather'] == true) {
+          tyappend += ',Weather';
+        }
+        if (trafficsettings['misc'] == true) {
+          tyappend += ',Misc';
+        }
+        if (trafficsettings['roadclosure'] == true) {
+          tyappend += ',RoadClosure';
+        }
+        if (trafficsettings['lanerestriction'] == true) {
+          tyappend += ',LaneRestriction';
+        }
         myUri += tyappend;
       }
 
       print('final uri with filters = ${myUri}');
 
       //_mastertrafficsettings = {
-      //    'allenabled': true,
-      //    'accidentenabled': false,
-      //    'congestionenabled': false,
-      //    'disabledvehicle': false,
-      //    'roadhazard': false,
-      //    'construction': false,
-      //    'roadclosure': false
+    //   'accident': accidentCount,
+    //  'congestion': congestionCount,
+    //  'disabledvehicle': disabledvehicleCount,
+    //  'roadhazard': roadhazardCount,
+    //  'construction': constructionCount,
+    //  'plannedevent': plannedeventCount,
+    //  'masstransit': masstransitCount,
+    //  'othernews': othernewsCount,
+    //  'weather': weatherCount,
+    //  'misc': miscCount,
+    //  'roadclosure': roadclosureCount,
+    //  'lanerestriction': lanerestrictionCount
       //  };
 
       //final http.Response trafficresponse = await http.get(trafficuri);
@@ -262,8 +285,8 @@ class CurrentTrafficHelper {
       DateTime datestamp = DateTime.parse(fmtdatestamp);
       print('the event timestamp will be .... ${datestamp.toIso8601String()}');
       print('tRAFFICITEMS to string is ${tevents.tRAFFICITEMS.toString()}');
-      if((!tevents.tRAFFICITEMS.toString().contains('TRAFFICITEM')) || (tevents.tRAFFICITEMS.tRAFFICITEM.length == 0)) 
-      {
+      if ((!tevents.tRAFFICITEMS.toString().contains('TRAFFICITEM')) ||
+          (tevents.tRAFFICITEMS.tRAFFICITEM.length == 0)) {
         print('Traffic with filter no results. Return empty list');
         return events;
       }

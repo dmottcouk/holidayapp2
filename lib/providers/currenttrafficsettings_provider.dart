@@ -11,7 +11,13 @@ class CurrentTrafficSettingsProvider extends ChangeNotifier {
       'disabledvehicle': false,
       'roadhazard': false,
       'construction': false,
-      'roadclosure': false
+      'plannedevent': false,
+      'masstransit': false,
+      'othernews': false,
+      'weather': false,
+      'misc': false,
+      'roadclosure': false,
+      'lanerestriction': false
     };
   }
 
@@ -45,7 +51,13 @@ class CurrentTrafficSettingsProvider extends ChangeNotifier {
         'disabledvehicle': false,
         'roadhazard': false,
         'construction': false,
-        'roadclosure': false
+        'plannedevent': false,
+        'masstransit': false,
+        'othernews': false,
+        'weather': false,
+        'misc': false,
+        'roadclosure': false,
+        'lanerestriction': false
       };
     }
     // for now just create a blank
@@ -67,11 +79,16 @@ class CurrentTrafficSettingsProvider extends ChangeNotifier {
       _mastertrafficsettings = {
         'allenabled': true,
         'accidentenabled': false,
-        'congestionenabled': false,
         'disabledvehicle': false,
         'roadhazard': false,
         'construction': false,
-        'roadclosure': false
+        'plannedevent': false,
+        'masstransit': false,
+        'othernews': false,
+        'weather': false,
+        'misc': false,
+        'roadclosure': false,
+        'lanerestriction': false
       };
     }
     notifyListeners();

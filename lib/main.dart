@@ -9,6 +9,7 @@ import './providers/currenttrafficevents_provider.dart';
 import './pages/map_screen.dart';
 import './pages/current_weather_page.dart';
 import './pages/traffic_filters_screen.dart';
+import './pages/current_tides_page.dart';
 import './pages/current_traffic_page.dart';
 import './models/place.dart';
 import './widgets/location_static_map.dart';
@@ -108,8 +109,10 @@ class _MyAppState extends State<MyApp> {
             MapScreen.routeName: (ctx) => MapScreen(),
 
             TrafficFiltersScreen.routeName: (ctx) => TrafficFiltersScreen(),
-            //CurrentWeatherPage.routeName: (ctx) => CurrentWeatherPage(),
-            //CurrentTrafficPage.routeName: (ctx) => CurrentWeatherPage(),
+            CurrentWeatherPage.routeName: (ctx) =>
+                CurrentWeatherPage(_currentLocation),
+            CurrentTidesPage.routeName: (ctx) =>
+                CurrentTidesPage(_currentLocation),
           }),
     );
   }

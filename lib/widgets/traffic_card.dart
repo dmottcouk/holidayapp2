@@ -61,5 +61,6 @@ Widget _buildButtonBar(BuildContext ctx, TrafficEvent trafficevent) {
 void _showTrafficCommentsSnackBar(BuildContext ctx, String comment) {
   final snackBar =
       new SnackBar(duration: Duration(seconds: 5), content: Text(comment));
+  Scaffold.of(ctx).hideCurrentSnackBar();
   Scaffold.of(ctx).showSnackBar(snackBar);
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -14,7 +13,8 @@ class MainButtonRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final trafficsettings = Provider.of<CurrentTrafficSettingsProvider>(context);
+    final trafficsettings =
+        Provider.of<CurrentTrafficSettingsProvider>(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -26,7 +26,8 @@ class MainButtonRow extends StatelessWidget {
           onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (BuildContext context) => CurrentTrafficPage(loc, trafficsettings.thetrafficsettings),
+                  builder: (BuildContext context) => CurrentTrafficPage(
+                      loc, trafficsettings.thetrafficsettings),
                 ),
               ),
         ),
@@ -36,24 +37,25 @@ class MainButtonRow extends StatelessWidget {
           color: Theme.of(context).primaryColorLight,
           //onPressed: () {},
 
-          onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => CurrentTidesPage(loc),
-                ),
-              ),
+          onPressed: () => Navigator.of(context).pushNamed(CurrentTidesPage.routeName)
+                //context,
+                //MaterialPageRoute(
+                //  builder: (BuildContext context) => CurrentTidesPage(loc),
+               // ),
+              //),
         ),
         RaisedButton(
-          shape: const StadiumBorder(),
-          child: Text('Weather'),
-          color: Theme.of(context).primaryColorLight,
-          onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => CurrentWeatherPage(loc),
-                ),
-              ),
-        ),
+            shape: const StadiumBorder(),
+            child: Text('Weather'),
+            color: Theme.of(context).primaryColorLight,
+            onPressed: () =>
+                Navigator.of(context).pushNamed(CurrentWeatherPage.routeName)
+            //context,
+            //MaterialPageRoute(
+            //  builder: (BuildContext context) => CurrentWeatherPage(loc),
+            //),
+            //),
+            ),
       ],
     );
   }

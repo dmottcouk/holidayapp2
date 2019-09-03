@@ -6,6 +6,9 @@ import '../models/place.dart';
 import '../widgets/tide_card.dart';
 
 class CurrentTidesPage extends StatelessWidget {
+
+  static const routeName = '/tides';
+  
   final PlaceLocation loc;
   CurrentTidesPage(this.loc);
 

@@ -43,7 +43,7 @@ class _CurrentTrafficPageState extends State<CurrentTrafficPage> {
           else {
             if (snapshot.error != null) {
               return Center(
-                child: Text('CurrentTidesPage: An error occurred'),
+                child: Text('CurrentTrafficPage: An error occurred'),
               );
             } else {
               return Consumer<CurrentTrafficEventsProvider>(
@@ -74,8 +74,8 @@ class _CurrentTrafficPageState extends State<CurrentTrafficPage> {
                                 : ListView.builder(
                                     itemCount:
                                         trafficevents.trafficevents.length,
-                                    itemBuilder: (ctx, i) => TrafficCard(
-                                        trafficevents.trafficevents[i]),
+                                    itemBuilder: (ctx, i) => TrafficCard(currentLocation: widget.loc,
+                                        trafficevent:trafficevents.trafficevents[i]),
                                   ),
                           ),
                         )
@@ -119,9 +119,10 @@ void _displayEventCounts(BuildContext ctx) {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Container(
                 width: 200,
+                margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Theme.of(ctx).primaryColorLight,
                     borderRadius: BorderRadius.circular(15)),

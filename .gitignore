@@ -33,3 +33,8 @@ android/app/src/main/AndroidManifest.xml
 .gitignore
 
 
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+ios/Runner/GeneratedPluginRegistrant.h

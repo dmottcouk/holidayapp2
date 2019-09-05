@@ -44,10 +44,39 @@ class _MapScreenState extends State<MapScreen> {
         // a set is a bit like a list but the values are guaranteed to be unique
         markers: {
           Marker(
-            markerId: MarkerId('*'),
-            position: LatLng(currentLocation.latitude, currentLocation.longitude),
-          )
+              markerId: MarkerId('A'),
+              position:
+                  LatLng(currentLocation.latitude, currentLocation.longitude),
+              onTap: () {
+                _showTrafficCommentsDialog(
+                    context, "Your current location");
+              })
         },
+      ),
+    );
+  }
+
+  void _showTrafficCommentsSnackBar(BuildContext ctx, String comment) {
+    // does not work
+    final snackBar =
+        new SnackBar(duration: Duration(seconds: 5), content: Text(comment));
+    Scaffold.of(ctx).hideCurrentSnackBar();
+    Scaffold.of(ctx).showSnackBar(snackBar);
+  }
+
+  void _showTrafficCommentsDialog(BuildContext ctx, String comment) {
+    showDialog(
+      context: ctx,
+      builder: (ctx) => AlertDialog(
+        title: Text('Marker information'),
+        content: Text(comment),
+        actions: <Widget>[
+          FlatButton(
+              child: Text('Okay'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              }),
+        ],
       ),
     );
   }

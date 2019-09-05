@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:holidayapp2/models/place.dart';
+import 'package:holidayapp2/pages/traffic_detail_map_page.dart';
 import 'package:intl/intl.dart';
 import '../models/trafficevent.dart';
 
 class TrafficCard extends StatelessWidget {
+  final PlaceLocation currentLocation;
   final TrafficEvent trafficevent;
 
-  TrafficCard(this.trafficevent);
+  TrafficCard({this.currentLocation, this.trafficevent});
   @override
   Widget build(BuildContext context) {
     print('The eventtype is ${trafficevent.trafficeventtype}');
     final BuildContext scaffoldContext = context;
-    
+
     return Card(
       elevation: 3,
       child: Padding(
@@ -31,14 +34,27 @@ class TrafficCard extends StatelessWidget {
             trafficevent.trafficeventtype.toLowerCase(),
             style: TextStyle(fontSize: 10),
           ),
-          trailing: _buildButtonBar(scaffoldContext, trafficevent),
+          trailing:
+              _buildButtonBar(scaffoldContext, currentLocation, trafficevent),
         ),
       ),
     );
   }
 }
 
-Widget _buildButtonBar(BuildContext ctx, TrafficEvent trafficevent) {
+Widget _buildButtonBar(
+    BuildContext ctx, PlaceLocation currloc, TrafficEvent trafficevent) {
+  List<PlaceLocation> mapitems = [
+    PlaceLocation(
+        latitude: currloc.latitude,
+        longitude: currloc.longitude,
+        address: "Current Location"),
+    PlaceLocation(
+        latitude: trafficevent.origin.latitude,
+        longitude: trafficevent.origin.longitude,
+        address: trafficevent.comments)
+  ];
+
   return Container(
     width: 100,
     child: Row(
@@ -55,7 +71,18 @@ Widget _buildButtonBar(BuildContext ctx, TrafficEvent trafficevent) {
             icon: Icon(
               Icons.map,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              print("Detected map detail pressed");
+              //Navigator.of(ctx).pushNamed(TrafficDetailMapPage.routeName,
+              //    arguments: mapitems);
+              Navigator.push(
+                ctx,
+                MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      TrafficDetailMapPage(mapitems),
+                ),
+              );
+            }),
       ],
     ),
   );

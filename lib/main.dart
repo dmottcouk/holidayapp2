@@ -11,6 +11,7 @@ import './pages/current_weather_page.dart';
 import './pages/traffic_filters_screen.dart';
 import './pages/current_tides_page.dart';
 import './pages/current_traffic_page.dart';
+import './pages/traffic_detail_map_page.dart';
 import './models/place.dart';
 import './widgets/location_static_map.dart';
 import './widgets/main_button_row.dart';
@@ -64,49 +65,50 @@ class _MyAppState extends State<MyApp> {
           // home: PlacesListScreen(),
           home: Builder(
             builder: (context) => Scaffold(
-                  appBar: AppBar(
-                    title: Text('Holiday App 2'),
-                    actions: <Widget>[
-                      IconButton(
-                          icon: Icon(Icons.settings),
-                          onPressed: () => Navigator.of(context)
-                              .pushNamed(TrafficFiltersScreen.routeName))
-                      //_appBarSettings(context),
-                    ],
-                  ),
-                  body: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          // call the LocationStaticMap and set the current location by passing the pointer to the _selectedPlace function
-                          child: LocationStaticMap(_selectedPlace),
-                          //child: Text('Why not working'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Column(
-                            children: <Widget>[
-                              MainButtonRow(_currentLocation),
-                              _currentLocation == null
-                                  ? Center(child: CircularProgressIndicator())
-                                  : MainShowDayLightTimes(_currentLocation),
-                            ],
-                          ),
-                        ),
-                      ],
+              appBar: AppBar(
+                title: Text('Holiday App 2'),
+                actions: <Widget>[
+                  IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed(TrafficFiltersScreen.routeName))
+                  //_appBarSettings(context),
+                ],
+              ),
+              body: Container(
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      // call the LocationStaticMap and set the current location by passing the pointer to the _selectedPlace function
+                      child: LocationStaticMap(_selectedPlace),
+                      //child: Text('Why not working'),
                     ),
-                  ),
-                  floatingActionButton: MainFab(_currentLocation),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        children: <Widget>[
+                          MainButtonRow(_currentLocation),
+                          _currentLocation == null
+                              ? Center(child: CircularProgressIndicator())
+                              : MainShowDayLightTimes(_currentLocation),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              floatingActionButton: MainFab(_currentLocation),
+            ),
           ),
           // routes takes a builder
           routes: {
             //move main_page stuff in here to use these
 
             MapScreen.routeName: (ctx) => MapScreen(),
+            //TrafficDetailMapPage.routeName: (ctx) => TrafficDetailMapPage(),
 
             TrafficFiltersScreen.routeName: (ctx) => TrafficFiltersScreen(),
             CurrentWeatherPage.routeName: (ctx) =>

@@ -1,3 +1,6 @@
+
+//this was obtained using the https://javiercbk.github.io/json_to_dart tool
+
 class TrafficEvents {
   String tIMESTAMP;
   double vERSION;

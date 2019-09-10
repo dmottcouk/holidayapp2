@@ -1,0 +1,48 @@
+{
+    "Headline": {
+        "EffectiveDate": "2019-09-10T20:00:00+01:00",
+        "EffectiveEpochDate": 1568142000,
+        "Severity": 1,
+        "Text": "Tropical Rainstorm will affect the area Tuesday night",
+        "Category": "tropical",
+        "EndDate": "2019-09-11T08:00:00+01:00",
+        "EndEpochDate": 1568185200,
+        "MobileLink": "http://m.accuweather.com/en/gb/goostrey/cw4-8/extended-weather-forecast/713903?unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/gb/goostrey/cw4-8/daily-weather-forecast/713903?unit=c&lang=en-us"
+    },
+    "DailyForecasts": [
+        {
+            "Date": "2019-09-10T07:00:00+01:00",
+            "EpochDate": 1568095200,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 10.8,
+                    "Unit": "C",
+                    "UnitType": 17
+                },
+                "Maximum": {
+                    "Value": 17.7,
+                    "Unit": "C",
+                    "UnitType": 17
+                }
+            },
+            "Day": {
+                "Icon": 4,
+                "IconPhrase": "Intermittent clouds",
+                "HasPrecipitation": false
+            },
+            "Night": {
+                "Icon": 18,
+                "IconPhrase": "Rain",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Moderate"
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/gb/goostrey/cw4-8/daily-weather-forecast/713903?day=1&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/goostrey/cw4-8/daily-weather-forecast/713903?day=1&unit=c&lang=en-us"
+        }
+    ]
+}

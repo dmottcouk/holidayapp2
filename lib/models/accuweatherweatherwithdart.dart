@@ -1,12 +1,12 @@
 //this was obtained using the https://javiercbk.github.io/json_to_dart tool
 
-class Accuweatherweather {
+class AccuweatherweatherWithDart {
   Headline headline;
   List<DailyForecasts> dailyForecasts;
 
-  Accuweatherweather({this.headline, this.dailyForecasts});
+  AccuweatherweatherWithDart({this.headline, this.dailyForecasts});
 
-  Accuweatherweather.fromJson(Map<String, dynamic> json) {
+  AccuweatherweatherWithDart.fromJson(Map<String, dynamic> json) {
     headline = json['Headline'] != null
         ? new Headline.fromJson(json['Headline'])
         : null;
@@ -220,9 +220,9 @@ class Day {
     icon = json['Icon'];
     iconPhrase = json['IconPhrase'];
     hasPrecipitation = json['HasPrecipitation'];
-    precipitationType = hasPrecipitation ? json['precipitationType'] : "NA";
+    precipitationType = hasPrecipitation ? json['PrecipitationType'] : "NA";
     precipitationIntensity =
-        hasPrecipitation ? json['precipitationIntensity'] : "NA";
+        hasPrecipitation ? json['PrecipitationIntensity'] : "NA";
   }
 
   Map<String, dynamic> toJson() {
@@ -255,9 +255,9 @@ class Night {
     icon = json['Icon'];
     iconPhrase = json['IconPhrase'];
     hasPrecipitation = json['HasPrecipitation'];
-    precipitationType = hasPrecipitation ? json['HasPrecipitation'] : "NA";
+    precipitationType = hasPrecipitation ? json['PrecipitationType'] : "NA";
     precipitationIntensity =
-        hasPrecipitation ? json['precipitationIntensity'] : "NA";
+        hasPrecipitation ? json['PrecipitationIntensity'] : "NA";
     ;
   }
 

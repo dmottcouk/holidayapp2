@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import './providers/daylighttimes_provider.dart';
 import './providers/currentweather_provider.dart';
 import './providers/currenttides_provider.dart';
 import './providers/currenttrafficsettings_provider.dart';
 import './providers/currenttrafficevents_provider.dart';
+import './providers/currentaccuweather_provider.dart';
 
 import './pages/map_screen.dart';
 import './pages/current_weather_page.dart';
@@ -17,6 +19,7 @@ import './widgets/location_static_map.dart';
 import './widgets/main_button_row.dart';
 import './widgets/main_showdaylighttimes.dart';
 import './widgets/main_fab.dart';
+import './pages/current_accuweather_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -54,7 +57,10 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(
           //value: GreatPlaces(),
           value: CurrentTrafficEventsProvider(),
-        )
+        ),
+        ChangeNotifierProvider.value(
+          value: CurrentAccuweatherProvider(),
+        ),
       ],
       child: MaterialApp(
           title: 'Holiday App 2',
@@ -115,6 +121,8 @@ class _MyAppState extends State<MyApp> {
                 CurrentWeatherPage(_currentLocation),
             CurrentTidesPage.routeName: (ctx) =>
                 CurrentTidesPage(_currentLocation),
+            CurrentAccuweatherPage.routeName: (ctx) =>
+                CurrentAccuweatherPage(_currentLocation),
           }),
     );
   }

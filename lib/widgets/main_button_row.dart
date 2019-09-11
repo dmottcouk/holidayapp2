@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+
 import 'package:provider/provider.dart';
 import '../providers/currenttrafficsettings_provider.dart';
+import '../pages/current_accuweather_page.dart';
 import '../pages/current_weather_page.dart';
 import '../pages/current_tides_page.dart';
 import '../pages/current_traffic_page.dart';
@@ -49,7 +51,9 @@ class MainButtonRow extends StatelessWidget {
             child: Text('Weather'),
             color: Theme.of(context).primaryColorLight,
             onPressed: () =>
-                Navigator.of(context).pushNamed(CurrentWeatherPage.routeName)
+               //Navigator.of(context).pushNamed(CurrentWeatherPage.routeName)
+
+                Navigator.of(context).pushNamed(CurrentAccuweatherPage.routeName)
             //context,
             //MaterialPageRoute(
             //  builder: (BuildContext context) => CurrentWeatherPage(loc),

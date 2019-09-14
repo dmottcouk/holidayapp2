@@ -9,7 +9,6 @@ import '../widgets/accuweather_day.dart';
 import '../widgets/accuweather_night.dart';
 
 class CurrentAccuweatherPage extends StatefulWidget {
-
   static const routeName = '/accuweather';
 
   final PlaceLocation loc;
@@ -62,7 +61,45 @@ class _CurrentAccuweatherPageState extends State<CurrentAccuweatherPage> {
         onPageChanged: onPageChanged,
         controller: _pageController,
       ),
-      bottomNavigationBar: Theme(
+      bottomNavigationBar: Theme(data: Theme.of(context).copyWith(
+          // sets the background color of the `BottomNavigationBar`
+          canvasColor: const Color(0xFF587c52),
+        ), //
+              child: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.wb_sunny,
+                  color: const Color(0xFFFFFFFF),
+                ),
+                title: Text(
+                  "Day",
+                  style: TextStyle(
+                    color: const Color(0xFFFFFFFF),
+                  ),
+                )),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.wb_cloudy,
+                  color: const Color(0xff000000),
+                ),
+                title: Text(
+                  "Night",
+                  style: TextStyle(
+                    color: const Color(0xff000000),
+                  ),
+                )),
+          ],
+          onTap: navigationTapped,
+          currentIndex: _page,
+        ),
+      ),
+    );
+  }
+}
+
+/*
+Theme(
         data: Theme.of(context).copyWith(
           // sets the background color of the `BottomNavigationBar`
           canvasColor: const Color(0xFF167F67),
@@ -96,6 +133,4 @@ class _CurrentAccuweatherPageState extends State<CurrentAccuweatherPage> {
           currentIndex: _page,
         ),
       ),
-    );
-  }
-}
+      */

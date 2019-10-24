@@ -35,7 +35,7 @@ class CurrentWeatherHelper {
       final date = new DateTime.fromMillisecondsSinceEpoch(dateunixtime * 1000);
       print("date = ${date.toIso8601String()}");
 
-      final double temp =
+      final num temp =
           ((weatherdecodedResponse['list'][0]['main']['temp_min'] - 32) * 5) /
               9;
       print("temp = $temp");
@@ -51,17 +51,17 @@ class CurrentWeatherHelper {
       print("weathermain = $weathermain");
       print("weatherdescription = $weatherdescription");
 
-      final double pressure = 0.1;
+      final num pressure = 0.1;
       //    weatherdecodedResponse['list'][0]['main']['pressure'];
      // print("pressure = $pressure");
 
 
       final num cloudcover = weatherdecodedResponse['list'][0]['clouds']['all'];
       print("cloudcover = $cloudcover");
-      final windstrength = weatherdecodedResponse['list'][0]['wind']['speed'];
+      final num windstrength = weatherdecodedResponse['list'][0]['wind']['speed'];
       print("windstrength = $windstrength");
 
-      final winddirection = weatherdecodedResponse['list'][0]['wind']['deg'];
+      final num winddirection = weatherdecodedResponse['list'][0]['wind']['deg'];
       print("winddirection = $winddirection");
       print("timestamp = $date");
       final weathericon =
@@ -82,11 +82,11 @@ class CurrentWeatherHelper {
           windstrength: windstrength,
           winddirection: winddirection));
     } catch (error) {
-      print('Error in getting weather');
+      print('Error in getting weather $error.');
     } finally {}
   }
 
-  static String getTheWindDirection(double windDirection) {
+  static String getTheWindDirection(num windDirection) {
     if ((windDirection > 348.75) || (windDirection < 11.25)) return 'N';
     if ((windDirection >= 11.25) && (windDirection < 33.75)) return 'NNE';
     if ((windDirection >= 33.75) && (windDirection < 56.25)) return 'NE';

@@ -47,7 +47,8 @@ class CurrentWeatherPage extends StatelessWidget {
                 color: Theme.of(ctx).primaryColorLight,
                 borderRadius: BorderRadius.circular(10)),
             child: Image.network(
-                "http://openweathermap.org/img/w/${weather.icon}.png",
+    //            "http://openweathermap.org/img/w/${weather.icon}.png",
+                "http://openweathermap.org/img/w/10d.png",
                 scale: 0.3),
           ),
         ),

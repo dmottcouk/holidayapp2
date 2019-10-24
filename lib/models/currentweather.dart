@@ -4,15 +4,15 @@ class CurrentWeather {
   final String id;     // use uuid
   final num unixstamp;
   final DateTime timestamp; // see above
-  final double temp;  
-  final double pressure;
+  final num temp;  
+  final num pressure;
   final num humidity;
   final String weathermain;
   final String weatherdescription;
   final String icon;
   final num cloudcover;
-  final double windstrength;
-  final double winddirection; // can be null
+  final num windstrength;
+  final num winddirection; // can be null
   final double rain;        // can be null
   final double snow;    // can be null
 

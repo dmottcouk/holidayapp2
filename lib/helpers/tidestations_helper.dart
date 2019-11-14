@@ -146,7 +146,7 @@ class TidestationsHelper {
       print(
           'TidestationsHelper: gti: Date 1 is ${tidalStationListData[1]["DateTime"]}');
       print(
-          'TidestationsHelper: gti: Height 1 is ${tidalStationListData[1]["Height"]}');
+          'TidestationsHelper: gti: Height 1 is ${tidalStationListData[1]["Height"] ?? "not given"}');
       final PlaceLocation tidestationLocation = PlaceLocation(latitude:_nearestStation.latitude, longitude: _nearestStation.longitude, address: '${ _nearestStation.name},${ _nearestStation.country}' );
 
       tidalStationListData.forEach((station) {
@@ -156,7 +156,7 @@ class TidestationsHelper {
             loc: tidestationLocation,
             eventtype: station["EventType"],
             datestamp: station["DateTime"],
-            height: station["Height"]));
+            height: station["Height"] ?? -1.0));
       });
 
       var counter = 0;
